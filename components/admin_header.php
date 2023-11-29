@@ -40,7 +40,7 @@ if (isset($message)) {
          <p>
             <?= $fetch_profile['name']; ?>
          </p>
-         <a href="update_profile.php" class="btn">Update profile</a>
+         <a href="update_profile.php" class="btn">Actualizar perfil</a>
          <div class="flex-btn">
             <a href="admin_login.php" class="option-btn">Iniciar</a>
             <a href="register_admin.php" class="option-btn">Registrarse</a>

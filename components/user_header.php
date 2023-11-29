@@ -51,7 +51,7 @@ if (isset($message)) {
             </p>
             <div class="flex">
                <a href="profile.php" class="btn">Perfil</a>
-               <a href="components/user_logout.php" onclick="return confirm('logout from this website?');"
+               <a href="components/user_logout.php" onclick="return confirm('¿Salir de este sitio web?');"
                   class="delete-btn">Salir</a>
             </div>
             <p class="account">
