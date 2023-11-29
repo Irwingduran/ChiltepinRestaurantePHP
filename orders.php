@@ -39,7 +39,7 @@ if (isset($_SESSION['user_id'])) {
 
    <div class="heading">
       <h3>Mis Ordenes</h3>
-      <p><a href="html.php">Inicio</a> <span> / Pedidos</span></p>
+      <p><a href="index.php">Inicio</a> <span> / Pedidos</span></p>
    </div>
 
    <section class="orders">
@@ -58,7 +58,7 @@ if (isset($_SESSION['user_id'])) {
                while ($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)) {
                   ?>
                   <div class="box">
-                     <p> Situado en : <span>
+                     <p> Fecha y hora : <span>
                            <?= $fetch_orders['placed_on']; ?>
                         </span></p>
                      <p>Nombre : <span>
@@ -82,7 +82,7 @@ if (isset($_SESSION['user_id'])) {
                      <p>Total : <span>$
                            <?= $fetch_orders['total_price']; ?>/-
                         </span></p>
-                     <p> payment status : <span style="color:<?php if ($fetch_orders['payment_status'] == 'pending') {
+                     <p> Pago completado: <span style="color:<?php if ($fetch_orders['payment_status'] == 'pendiente') {
                         echo 'red';
                      } else {
                         echo 'green';

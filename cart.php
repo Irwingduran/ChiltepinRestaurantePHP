@@ -40,13 +40,13 @@ $grand_total = 0;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>cart</title>
+   <title>Carrito | Chiltepin Restaurant</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -63,15 +63,15 @@ $grand_total = 0;
    <!-- header section ends -->
 
    <div class="heading">
-      <h3>shopping cart</h3>
-      <p><a href="index.php">home</a> <span> / cart</span></p>
+      <h3>Carrito</h3>
+      <p><a href="index.php">Inicio</a> <span> / Carrito</span></p>
    </div>
 
    <!-- shopping cart section starts  -->
 
    <section class="products">
 
-      <h1 class="title">your cart</h1>
+      <h1 class="title">Tu carrito</h1>
 
       <div class="box-container">
 
@@ -99,7 +99,7 @@ $grand_total = 0;
                         maxlength="2">
                      <button type="submit" class="fas fa-edit" name="update_qty"></button>
                   </div>
-                  <div class="sub-total"> sub total : <span>$
+                  <div class="sub-total"> Sub total : <span>$
                         <?= $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-
                      </span> </div>
                </form>
@@ -114,18 +114,18 @@ $grand_total = 0;
       </div>
 
       <div class="cart-total">
-         <p>cart total : <span>$
+         <p>Total : <span>$
                <?= $grand_total; ?>
             </span></p>
-         <a href="checkout.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">proceed to checkout</a>
+         <a href="checkout.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">Continuar con el checkout</a>
       </div>
 
       <div class="more-btn">
          <form action="" method="post">
             <button type="submit" class="delete-btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>" name="delete_all"
-               onclick="return confirm('delete all from cart?');">delete all</button>
+               onclick="return confirm('delete all from cart?');">Borrar todo</button>
          </form>
-         <a href="menu.php" class="btn">continue shopping</a>
+         <a href="menu.php" class="btn">Agregar más cosas al carrito</a>
       </div>
 
    </section>

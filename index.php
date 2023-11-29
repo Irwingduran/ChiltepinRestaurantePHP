@@ -53,14 +53,14 @@ include 'components/add_cart.php';
                   <a href="menu.html" class="btn">Ver Menú</a>
                </div>
                <div class="image">
-                  <img src="images/home-img-1.png" alt="">
+                  <img src="images/coffee.jpg" alt="">
                </div>
             </div>
 
             <div class="swiper-slide slide">
                <div class="content">
                   <span>Ordena Online</span>
-                  <h3>Deliciosas Entradas</h3>
+                  <h3>Deliciosos Almuerzos</h3>
                   <a href="menu.html" class="btn">Ver Menú</a>
                </div>
                <div class="image">
@@ -70,8 +70,8 @@ include 'components/add_cart.php';
 
             <div class="swiper-slide slide">
                <div class="content">
-                  <span>order online</span>
-                  <h3>rosted chicken</h3>
+                  <span>Ordena Online</span>
+                  <h3>Disfruta de Nuestra Variedad</h3>
                   <a href="menu.html" class="btn">see menus</a>
                </div>
                <div class="image">
@@ -89,7 +89,7 @@ include 'components/add_cart.php';
 
    <section class="category">
 
-      <h1 class="title">catgorias</h1>
+      <h1 class="title">nuestras categorías</h1>
 
       <div class="box-container">
 
@@ -103,7 +103,7 @@ include 'components/add_cart.php';
             <h3>Desayunos</h3>
          </a>
 
-         <a href="category.php?category=drinks" class="box">
+         <a href="category.php?category=Bebidas" class="box">
             <img src="images/cat-3.png" alt="">
             <h3>Clásicos</h3>
          </a>
@@ -122,7 +122,7 @@ include 'components/add_cart.php';
 
    <section class="products">
 
-      <h1 class="title">latest dishes</h1>
+      <h1 class="title">últimos platillos</h1>
 
       <div class="box-container">
 
@@ -154,7 +154,7 @@ include 'components/add_cart.php';
                <?php
             }
          } else {
-            echo '<p class="empty">No hay productos añadidos todavía</p>';
+            echo '<p class="empty">No hay productos añadidos</p>';
          }
          ?>
 

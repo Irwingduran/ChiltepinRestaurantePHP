@@ -8,22 +8,22 @@ if (isset($_SESSION['user_id'])) {
    $user_id = $_SESSION['user_id'];
 } else {
    $user_id = '';
-   header('location:home.php');
+   header('location:index.php');
 }
 ;
 
 if (isset($_POST['submit'])) {
 
    $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $name = filter_var($name, FILTER_UNSAFE_RAW);
    $number = $_POST['number'];
-   $number = filter_var($number, FILTER_SANITIZE_STRING);
+   $number = filter_var($number, FILTER_UNSAFE_RAW);
    $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $email = filter_var($email, FILTER_UNSAFE_RAW);
    $method = $_POST['method'];
-   $method = filter_var($method, FILTER_SANITIZE_STRING);
+   $method = filter_var($method, FILTER_UNSAFE_RAW);
    $address = $_POST['address'];
-   $address = filter_var($address, FILTER_SANITIZE_STRING);
+   $address = filter_var($address, FILTER_UNSAFE_RAW);
    $total_products = $_POST['total_products'];
    $total_price = $_POST['total_price'];
 
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
    if ($check_cart->rowCount() > 0) {
 
       if ($address == '') {
-         $message[] = 'please add your address!';
+         $message[] = 'Introduce tu dirección de envío';
       } else {
 
          $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price) VALUES(?,?,?,?,?,?,?,?)");
@@ -42,11 +42,11 @@ if (isset($_POST['submit'])) {
          $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
          $delete_cart->execute([$user_id]);
 
-         $message[] = 'order placed successfully!';
+         $message[] = '¡Pedido realizado con éxito!';
       }
 
    } else {
-      $message[] = 'your cart is empty';
+      $message[] = 'El carrito está vacío';
    }
 
 }
@@ -54,13 +54,13 @@ if (isset($_POST['submit'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>checkout</title>
+   <title>Checkout | Chiltepin Restaurant</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -77,18 +77,18 @@ if (isset($_POST['submit'])) {
    <!-- header section ends -->
 
    <div class="heading">
-      <h3>checkout</h3>
-      <p><a href="home.php">home</a> <span> / checkout</span></p>
+      <h3>Checkout</h3>
+      <p><a href="index.php">Inicio</a> <span> / Checkout</span></p>
    </div>
 
    <section class="checkout">
 
-      <h1 class="title">order summary</h1>
+      <h1 class="title">Resumen de pedido</h1>
 
       <form action="" method="post">
 
          <div class="cart-items">
-            <h3>cart items</h3>
+            <h3>Artículos en el carrito</h3>
             <?php
             $grand_total = 0;
             $cart_items[] = '';
@@ -109,13 +109,13 @@ if (isset($_POST['submit'])) {
                   <?php
                }
             } else {
-               echo '<p class="empty">your cart is empty!</p>';
+               echo '<p class="empty">El carrito está vacío</p>';
             }
             ?>
-            <p class="grand-total"><span class="name">grand total :</span><span class="price">$
+            <p class="grand-total"><span class="name">Total :</span><span class="price">$
                   <?= $grand_total; ?>
                </span></p>
-            <a href="cart.php" class="btn">veiw cart</a>
+            <a href="cart.php" class="btn">Ver carrito</a>
          </div>
 
          <input type="hidden" name="total_products" value="<?= $total_products; ?>">
@@ -126,7 +126,7 @@ if (isset($_POST['submit'])) {
          <input type="hidden" name="address" value="<?= $fetch_profile['address'] ?>">
 
          <div class="user-info">
-            <h3>your info</h3>
+            <h3>Tu información</h3>
             <p><i class="fas fa-user"></i><span>
                   <?= $fetch_profile['name'] ?>
                </span></p>
@@ -136,25 +136,23 @@ if (isset($_POST['submit'])) {
             <p><i class="fas fa-envelope"></i><span>
                   <?= $fetch_profile['email'] ?>
                </span></p>
-            <a href="update_profile.php" class="btn">update info</a>
-            <h3>delivery address</h3>
+            <a href="update_profile.php" class="btn">Actualizar</a>
+            <h3>Dirección de envío</h3>
             <p><i class="fas fa-map-marker-alt"></i><span>
                   <?php if ($fetch_profile['address'] == '') {
-                     echo 'please enter your address';
+                     echo 'Introduce tu dirección de envío';
                   } else {
                      echo $fetch_profile['address'];
                   } ?>
                </span></p>
-            <a href="update_address.php" class="btn">update address</a>
+            <a href="update_address.php" class="btn">Actualizar dirección</a>
             <select name="method" class="box" required>
-               <option value="" disabled selected>select payment method --</option>
-               <option value="cash on delivery">cash on delivery</option>
+               <option value="" disabled selected>Selecciona el método de pago --</option>
+               <option value="cash on delivery">Efectivo</option>
             </select>
-            <input type="submit" value="place order"
-               class="btn <?php if ($fetch_profile['address'] == '') {
-                  echo 'disabled';
-               } ?>"
-               style="width:100%; background:var(--red); color:var(--white);" name="submit">
+            <input type="submit" value="Realizar pedido" class="btn <?php if ($fetch_profile['address'] == '') {
+               echo 'disabled';
+            } ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
          </div>
 
       </form>

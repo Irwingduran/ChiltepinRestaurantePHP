@@ -14,7 +14,7 @@ if (isset($_SESSION['user_id'])) {
 
 if (isset($_POST['submit'])) {
 
-   $address = $_POST['flat'] . ', ' . $_POST['building'] . ', ' . $_POST['area'] . ', ' . $_POST['town'] . ', ' . $_POST['city'] . ', ' . $_POST['state'] . 'S - ' . $_POST['pin_code'];
+   $address = $_POST['flat'] . ', ' . $_POST['building'] . ', ' . $_POST['town'] . ', ' . $_POST['city'] . ', ' . $_POST['state'] . ', ' . $_POST['pin_code'] . ' - ' . $_POST['area'];
    $address = filter_var($address, FILTER_UNSAFE_RAW);
 
    $update_address = $conn->prepare("UPDATE `users` set address = ? WHERE id = ?");
@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
       <form action="" method="post">
          <h3>Detalles de tu dirección</h3>
          <input type="text" class="box" placeholder="Calle o Calles" required maxlength="50" name="flat">
-         <input type="text" class="box" placeholder="Número" required maxlength="50" name="building">
+         <input type="number" class="box" placeholder="Número" required maxlength="50" name="building">
          <input type="text" class="box" placeholder="Colonia" required maxlength="50" name="town">
          <input type="text" class="box" placeholder="Puebla" required maxlength="50" name="city">
          <input type="text" class="box" placeholder="Puebla" required maxlength="50" name="state">
