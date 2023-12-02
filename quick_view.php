@@ -38,7 +38,7 @@ include 'components/add_cart.php';
 
    <section class="quick-view">
 
-      <h1 class="title">Vista Ampliada</h1>
+      <h1 class="title">Vista Amplia</h1>
 
       <?php
       $pid = $_GET['pid'];
@@ -68,7 +68,7 @@ include 'components/add_cart.php';
             <?php
          }
       } else {
-         echo '<p class="empty">No hay productos añadidos todavía</p>';
+         echo '<p class="empty">No hay productos añadidos</p>';
       }
       ?>
 

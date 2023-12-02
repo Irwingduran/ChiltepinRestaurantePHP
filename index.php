@@ -64,7 +64,7 @@ include 'components/add_cart.php';
                   <a href="menu.html" class="btn">Ver Menú</a>
                </div>
                <div class="image">
-                  <img src="images/home-img-2.png" alt="">
+                  <img src="images/coffee.jpg" alt="">
                </div>
             </div>
 
@@ -72,7 +72,7 @@ include 'components/add_cart.php';
                <div class="content">
                   <span>Ordena Online</span>
                   <h3>Disfruta de Nuestra Variedad</h3>
-                  <a href="menu.html" class="btn">see menus</a>
+                  <a href="menu.html" class="btn">Ver Menú</a>
                </div>
                <div class="image">
                   <img src="images/home-img-3.png" alt="">

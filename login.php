@@ -65,7 +65,8 @@ if (isset($_POST['submit'])) {
          <input type="password" name="pass" required placeholder="Introduce tu contraseña" class="box" maxlength="50"
             oninput="this.value = this.value.replace(/\s/g, '')">
          <input type="submit" value="Entrar" name="submit" class="btn">
-         <p>¿No tienes una cuenta creada? <a href="register.php">Registrate ahora</a></p>
+         <p>¿No tienes una cuenta creada? <a href="register.php">Registrate</a> ó <a href="admin/admin_login.php">Admin</a>
+         </p>
       </form>
 
    </section>

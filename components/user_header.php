@@ -15,7 +15,9 @@ if (isset($message)) {
 
    <section class="flex">
 
-      <a href="index.php" class="logo">Chiltepín</a>
+      <a href="index.php" class="logo">
+         <img id="logo" src="images/log.png" alt="">
+      </a>
 
       <nav class="navbar">
          <a href="index.php">Inicio</a>
